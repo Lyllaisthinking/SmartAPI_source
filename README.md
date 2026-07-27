@@ -72,6 +72,7 @@ curl https://api.smartapi.cc/api/openapi/v1/chat/completions \
       {"role": "user", "content": "Hello SmartAPI"}
     ]
   }'
+
 请求进入 SmartAPI 网关后，会依次完成：鉴权 → 余额与限流检查 → 路由至健康上游通道（含自动 failover）→ 将响应返回客户端。响应体结构与 OpenAI Chat Completions 保持一致，可直接用于验证链路是否打通。
 收到正常响应后，说明 Key、模型选择与 endpoint 均已配置正确。后续切换模型，通常只需修改 model 字段，无需改动其余调用逻辑。
 
